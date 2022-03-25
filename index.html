@@ -11,15 +11,34 @@
       href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/sass/custom.css" />
-    <link rel="icon" type="image/x-icon" href="/media/favicon-32x32.png" />
+
+    <link rel="stylesheet" href="sass/custom.css" />
+    <link rel="icon" type="image/x-icon" href="media/favicon-32x32.png" />
+    <style>
+      #pestanyes .nav-link {
+        color: gray;
+        padding-bottom: 20px;
+        padding-top: 20px;
+        width: 20%;
+        border: none;
+      }
+
+      #pestanyes .nav-link:hover {
+        color: #fa5959;
+      }
+
+      #pestanyes .nav-link.active {
+        border-bottom: 5px solid #fa5959;
+      }
+    </style>
   </head>
   <body>
+    <!-- NAV BAR HEADER -->
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
-            <img src="/media/logo-bookmark.svg" alt="Logo Bookmark" />
+            <img src="media/logo-bookmark.svg" alt="Logo Bookmark" />
           </a>
           <button
             class="navbar-toggler"
@@ -53,11 +72,19 @@
         </div>
       </nav>
     </div>
-    <div class="container-fluid" style="overflow-x: hidden">
+    <!-- PRIMER APARTAT -->
+    <div
+      class="container-fluid"
+      id="illustration_hero"
+      style="
+        background-image: url(media/bg-bar.svg);
+        background-repeat: no-repeat;
+      "
+    >
       <div class="container">
         <div class="row">
           <div class="col-lg-6">
-            <div class="card h-100 border-0">
+            <div class="card h-100 border-0 bg-transparent">
               <div class="card-body d-flex flex-column justify-content-center">
                 <h1 class="card-title fw-bold display-5 py-3">
                   A Simple Bookmark Manager
@@ -82,50 +109,194 @@
           </div>
           <div class="col-lg-6">
             <img
-              src="/media/illustration-hero.svg"
-              class="img-fluid"
+              src="media/illustration-hero.svg"
+              class="img-fluid my-5"
               alt="Ilustración Bookmark"
             />
-            <!--<div
-              class="mt-5 position-absolute top-0 start-50 translate-middle-x"
-              style="z-index: -1"
-            >
-              <svg width="907" height="421" xmlns="http://www.w3.org/2000/svg">
-                <g>
-                  <title>Background SVG</title>
-                  <rect
-                    id="svg_1"
-                    height="415"
-                    width="700"
-                    y="3.5"
-                    x="214"
-                    stroke="#5267dd"
-                    fill="#5267dd"
-                  />
-                  <ellipse
-                    ry="207.5"
-                    rx="208"
-                    id="svg_3"
-                    cy="211"
-                    cx="211"
-                    stroke="#5267dd"
-                    fill="#5267dd"
-                  />
-                </g>
-              </svg>
-            </div>-->
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col d-flex justify-content-center">
-          <img
-            src="/media/bg-bar.svg"
-            class=""
-            alt="Barra de fondo"
-            style="position: relative; z-index: -1"
-            id="bar_background_ill-hero"
-          />
+    </div>
+    <!-- APARTAT FEATURES -->
+    <div class="container p-5 mt-5">
+      <div class="row justify-content-center">
+        <div class="col-12 text-center w-50">
+          <h2 class="fw-bold mb-4">Features</h2>
+          <p class="fs-5">
+            Our aim is to make it quick and easy for you to access your
+            favourite websites. Your bookmarks sync between your devices so you
+            can access them on the go.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- TABS -->
+    <div
+      class="container-fluid mb-5 pb-5"
+      style="
+        background-image: url(media/bg-bar-left.svg);
+        background-repeat: no-repeat;
+        background-size: 2000px;
+        background-position: center 220px;
+      "
+    >
+      <div class="container">
+        <nav id="pestanyes">
+          <div
+            class="nav nav-tabs border-0 justify-content-center"
+            id="nav-tab"
+            role="tablist"
+          >
+            <button
+              class="nav-link border-bottom"
+              id="nav-home-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#nav-home"
+              type="button"
+              role="tab"
+              aria-controls="nav-home"
+              aria-selected="false"
+            >
+              Simple Bookmarking
+            </button>
+            <button
+              class="nav-link border-bottom"
+              id="nav-profile-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#nav-profile"
+              type="button"
+              role="tab"
+              aria-controls="nav-profile"
+              aria-selected="true"
+            >
+              Speedy Searching
+            </button>
+            <button
+              class="nav-link active"
+              id="nav-contact-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#nav-contact"
+              type="button"
+              role="tab"
+              aria-controls="nav-contact"
+              aria-selected="true"
+            >
+              Easy Sharing
+            </button>
+          </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+          <div
+            class="tab-pane fade"
+            id="nav-home"
+            role="tabpanel"
+            aria-labelledby="nav-home-tab"
+          >
+            <div class="col-lg-6 mt-5">
+              <img
+                src="media/illustration-features-tab-1.svg"
+                class="img-fluid my-5 ps-4 w-100"
+                alt="Ilustración características"
+              />
+            </div>
+            <div
+              class="col-lg-6 card border-0 bg-transparent p-xxl-5 pe-xxl-3 mt-5"
+            >
+              <div
+                class="card-body d-flex flex-column justify-content-center ms-5"
+              >
+                <h2 class="card-title fw-bold py-3">Bookmark in one click</h2>
+                <p class="card-text py-2 fs-5 me-lg-3">
+                  Organize your bookmarks however you like. Our simple
+                  drag-and-drop interface gives you complete control over how
+                  you manage your favourite sites.
+                </p>
+                <div class="py-3">
+                  <a href="#" class="btn btn-primary rounded-3 p-3 px-4"
+                    >More Info</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="nav-profile"
+            role="tabpanel"
+            aria-labelledby="nav-profile-tab"
+          >
+            <div class="col-lg-6 mt-5">
+              <img
+                src="media/illustration-features-tab-2.svg"
+                class="img-fluid my-5 ps-4 w-100"
+                alt="Ilustración características"
+              />
+            </div>
+            <div
+              class="col-lg-6 card border-0 bg-transparent p-xxl-5 pe-xxl-3 mt-5"
+            >
+              <div
+                class="card-body d-flex flex-column justify-content-center ms-5"
+              >
+                <h2 class="card-title fw-bold py-3">Intelligent search</h2>
+                <p class="card-text py-2 fs-5 me-lg-3">
+                  Our powerful search feature will help you find saved sites in
+                  no time at all. No need to trawl through all of your
+                  bookmarks.
+                </p>
+                <div class="py-3">
+                  <a href="#" class="btn btn-primary rounded-3 p-3 px-4"
+                    >More Info</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="tab-pane show active fade d-flex row"
+            id="nav-contact"
+            role="tabpanel"
+            aria-labelledby="nav-contact-tab"
+          >
+            <div class="col-lg-6 mt-5">
+              <img
+                src="media/illustration-features-tab-3.svg"
+                class="img-fluid my-5 ps-4 w-100"
+                alt="Ilustración características"
+              />
+            </div>
+            <div
+              class="col-lg-6 card border-0 bg-transparent p-xxl-5 pe-xxl-3 mt-5"
+            >
+              <div
+                class="card-body d-flex flex-column justify-content-center ms-5"
+              >
+                <h2 class="card-title fw-bold py-3">Share your bookmarks</h2>
+                <p class="card-text py-2 fs-5 me-lg-3">
+                  Easily share your bookmarks and collections with others.
+                  Create a shareable likn that you can send at the click of a
+                  button.
+                </p>
+                <div class="py-3">
+                  <a href="#" class="btn btn-primary rounded-3 p-3 px-4"
+                    >More Info</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Next -->
+    <div class="container mb-5">
+      <div class="row justify-content-center">
+        <div class="col-12 text-center w-50">
+          <h2 class="fw-bold mb-4">Download the extension</h2>
+          <p class="fs-5">
+            We've got more browsers in the pipeline. Please de let us know if
+            you've got a favourite you'd like us prioritize.
+          </p>
         </div>
       </div>
     </div>
