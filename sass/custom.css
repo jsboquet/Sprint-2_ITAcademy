@@ -8277,52 +8277,48 @@ progress {
   }
 }
 
-#bar_background_ill-hero {
-  height: 110%;
-  top: -100%;
-  left: 200px;
+#illustration_hero {
+  background-image: url(media/bg-bar2.svg);
+  background-repeat: no-repeat;
 }
 
-@media (min-width: 576px) {
-  #bar_background_ill-hero {
-    height: 350px;
-    top: -90%;
-    left: 300px;
-  }
+/* #illustration_hero {
+        background-size: 2000px;
+        background-position: center 10px;
 }
 
+@include media-breakpoint-up(sm) {
+    #illustration_hero {
+        background-size: 2000px;
+        background-position: center 10px;
+    } 
+}
+} */
 @media (min-width: 768px) {
-  #bar_background_ill-hero {
-    height: 450px;
-    top: -90%;
-    left: 365px;
+  #illustration_hero {
+    background-size: 2000px;
+    background-position: center 10px;
   }
 }
 
 @media (min-width: 992px) {
-  #bar_background_ill-hero {
-    height: auto;
-    width: 850px;
-    top: -90%;
-    left: 540px;
+  #illustration_hero {
+    background-size: 1450px;
+    background-position: center 100px;
   }
 }
 
 @media (min-width: 1200px) {
-  #bar_background_ill-hero {
-    height: auto;
-    width: 1000px;
-    top: -85%;
-    left: 600px;
+  #illustration_hero {
+    background-size: 1700px;
+    background-position: center 120px;
   }
 }
 
 @media (min-width: 1400px) {
-  #bar_background_ill-hero {
-    height: auto;
-    width: 1200px;
-    top: -85%;
-    left: 700px;
+  #illustration_hero {
+    background-size: 2000px;
+    background-position: center 145px;
   }
 }
 /*# sourceMappingURL=custom.css.map */
