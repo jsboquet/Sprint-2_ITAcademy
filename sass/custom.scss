@@ -4,7 +4,6 @@ $primary: #5265E1;
 $secondary: #FA5959;
 $font-family-sans-serif:      'Rubik', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
 
-
 // 3. Include remainder of required Bootstrap stylesheets
 @import "../node_modules/bootstrap/scss/variables";
 @import "../node_modules/bootstrap/scss/mixins";
@@ -30,35 +29,89 @@ $font-family-sans-serif:      'Rubik', system-ui, -apple-system, "Segoe UI", Rob
 
 // 6. Add additional custom code here
 
-#illustration_hero {
-    background-image: url(media/bg-bar2.svg);
-    background-repeat: no-repeat;
+#header_card {
+    text-align: center;
 }
 
-/* #illustration_hero {
-        background-size: 2000px;
-        background-position: center 10px;
+#pestanyes > div > button {
+    width: 100%;
 }
 
-@include media-breakpoint-up(sm) {
-    #illustration_hero {
-        background-size: 2000px;
-        background-position: center 10px;
-    } 
+#nav-tab {
+    border: none;
+    border-top: 1px solid rgb(195, 195, 195);
 }
-} */
 
-@include media-breakpoint-up(md) { 
-    #illustration_hero {
-        background-size: 2000px;
-        background-position: center 10px;
+#nav-simple-tab, #nav-speedy-tab, #nav-easy-tab {
+    color: gray;
+    border: none;
+    border-bottom: 1px solid  rgb(195, 195, 195);
+    padding-bottom: 20px;
+    padding-top: 20px;
+    width: 20%;
+
+    &:hover {
+        color: #fa5959;
+    }
+
+    &.active {
+    border-top: 1px solid rgb(195, 195, 195);
+    border-bottom: 5px solid #fa5959;
+    color: black;
     }
 }
 
-@include media-breakpoint-up(lg) { 
+#illustration_hero {
+    background-image: url(/media/bg-bar.svg);
+    background-repeat: no-repeat;
+}
+
+#illustration_hero {
+    background-size: 250%;
+    background-position: 80% 20%
+}
+ 
+@include media-breakpoint-up(sm) {
+    #illustration_hero {
+        background-size: 1700px;
+        background-position: 80% 80px;
+    } 
+}
+
+@include media-breakpoint-up(md) { 
+    #illustration_hero {
+        background-size: 1900px;
+        background-position: 80% 140px
+    }
+
+    #pestanyes > div > button {
+        width: auto;
+    }
+
+    #nav-tab {
+        border-top: none;
+    }
+
+    #nav-simple-tab, #nav-speedy-tab, #nav-easy-tab {    
+        &.active {
+            border-top: none;
+        }
+    }
+}
+
+@include media-breakpoint-up(lg) {
+
+    #header_card {
+        text-align: left;
+    }
+
     #illustration_hero {
         background-size: 1450px;
         background-position: center 100px;
+    }
+
+    #features_content, #download_content {
+        max-width: 50%;
     }
 }
 
