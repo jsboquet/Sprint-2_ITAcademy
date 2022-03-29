@@ -3,6 +3,20 @@
 $primary: #5265E1;
 $secondary: #FA5959;
 $font-family-sans-serif:      'Rubik', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$aspect-ratios: ("custom": calc(21 / 9 * 100%));
+
+$border-radius: .6rem;
+$border-radius-lg: .9rem;
+$box-shadow: 0 .5rem 1rem rgba($primary, .15);
+
+$accordion-button-focus-border-color: none !default;
+$accordion-button-focus-box-shadow:  none !default;
+
+$accordion-button-active-color: $secondary !default;
+
+$accordion-icon-color: $primary !default;
+$accordion-icon-active-color: $secondary !default;
+
 
 // 3. Include remainder of required Bootstrap stylesheets
 @import "../node_modules/bootstrap/scss/variables";
@@ -10,6 +24,8 @@ $font-family-sans-serif:      'Rubik', system-ui, -apple-system, "Segoe UI", Rob
 @import "../node_modules/bootstrap/scss/root";
 
 // 4. Include any optional Bootstrap CSS as needed
+
+@import "../node_modules/bootstrap/scss/accordion";
 @import "../node_modules/bootstrap/scss/utilities";
 @import "../node_modules/bootstrap/scss/card";
 @import "../node_modules/bootstrap/scss/nav";
@@ -29,12 +45,18 @@ $font-family-sans-serif:      'Rubik', system-ui, -apple-system, "Segoe UI", Rob
 
 // 6. Add additional custom code here
 
-#header_card {
-    text-align: center;
+%download_cards {
+    background-image: url(../media/bg-dots.svg);
+    background-repeat: no-repeat;
+    background-position: 0px 70%;
 }
 
-#pestanyes > div > button {
-    width: 100%;
+#download_cards_holder > * {
+    @extend %download_cards;
+}
+
+#header_card, #nav-tabContent {
+    text-align: center;
 }
 
 #nav-tab {
@@ -42,66 +64,130 @@ $font-family-sans-serif:      'Rubik', system-ui, -apple-system, "Segoe UI", Rob
     border-top: 1px solid rgb(195, 195, 195);
 }
 
-#nav-simple-tab, #nav-speedy-tab, #nav-easy-tab {
+#download_cards_holder .col:nth-child(1),
+#download_cards_holder .col:nth-child(2),
+#download_cards_holder .col:nth-child(3) {
+    margin-top: 30px;
+}
+
+#nav-simple-tab,
+#nav-speedy-tab,
+#nav-easy-tab {
+    display: inline-block;
+    position: relative;
+
     color: gray;
     border: none;
-    border-bottom: 1px solid  rgb(195, 195, 195);
+    border-bottom: 1px solid rgb(195, 195, 195);
     padding-bottom: 20px;
     padding-top: 20px;
-    width: 20%;
+    width: 100%;
+    min-width: 250px;
+    margin-bottom: 1px;
 
     &:hover {
         color: #fa5959;
     }
 
     &.active {
-    border-top: 1px solid rgb(195, 195, 195);
-    border-bottom: 5px solid #fa5959;
-    color: black;
+        color: black;
+
+        &::after {
+            content: '';
+            height: 4px;
+            width: 30%;
+            background: #fa5959;
+            position: absolute;
+            left: calc(50% - 15%);
+            bottom: -2px;
+        }
     }
 }
 
 #illustration_hero {
-    background-image: url(/media/bg-bar.svg);
+    background-image: url(../media/bg-bar.svg);
     background-repeat: no-repeat;
+    background-size: 250%;
+    background-position: 80% 20%;
 }
 
-#illustration_hero {
+#tabs_background {
+    background-image: url(../media/bg-bar-left.svg);
+    background-repeat: no-repeat;
     background-size: 250%;
-    background-position: 80% 20%
+    background-position: 18% 45%;
 }
  
 @include media-breakpoint-up(sm) {
     #illustration_hero {
         background-size: 1700px;
         background-position: 80% 80px;
-    } 
+    }
+
+    .ratio-custom {
+        --bs-aspect-ratio: calc(15 / 9 * 100%);
+    }
+
+    #tabs_background {
+        background-size: 1700px;
+        background-position: 18% 300px;
+    }
 }
 
 @include media-breakpoint-up(md) { 
+
+    .ratio-custom {
+        --bs-aspect-ratio: calc(10 / 9 * 100%);
+    }
+
     #illustration_hero {
         background-size: 1900px;
         background-position: 80% 140px
     }
 
-    #pestanyes > div > button {
-        width: auto;
+    #tabs_background {
+        background-size: 1900px;
+        background-position: 18% 120px;
     }
 
     #nav-tab {
         border-top: none;
     }
 
-    #nav-simple-tab, #nav-speedy-tab, #nav-easy-tab {    
+    #nav-simple-tab, #nav-speedy-tab, #nav-easy-tab {
+        width: auto;
+        min-width: 200px;
+
         &.active {
             border-top: none;
+            border-bottom: 5px solid #fa5959;
+            color: black;
+    
+            &::after {
+                content: none;
+            }
         }
     }
 }
 
 @include media-breakpoint-up(lg) {
+    .ratio-custom {
+        --bs-aspect-ratio: calc(1 / 2 * 100%);
+    }
 
-    #header_card {
+    #download_cards_holder .col:nth-child(1) {
+        margin-top: 10px;
+    }
+
+    #download_cards_holder .col:nth-child(2) {
+        margin-top: 50px;
+    }
+
+    #download_cards_holder .col:nth-child(3) {
+        margin-top: 90px;
+    }
+
+    #header_card, #nav-tabContent {
         text-align: left;
     }
 
@@ -110,15 +196,29 @@ $font-family-sans-serif:      'Rubik', system-ui, -apple-system, "Segoe UI", Rob
         background-position: center 100px;
     }
 
+    #tabs_background {
+        background-size: 1450px;
+        background-position: center 250px;
+    }
+
     #features_content, #download_content {
         max-width: 50%;
     }
 }
 
-@include media-breakpoint-up(xl) { 
+@include media-breakpoint-up(xl) {
+    #nav-tabContent img:nth-child(1) {
+        width: 100%;
+    }
+
     #illustration_hero {
         background-size: 1700px;
         background-position: center 120px;
+    }
+
+    #tabs_background {
+        background-size: 1700px;
+        background-position: center 310px;
     }
 }
 
@@ -126,5 +226,10 @@ $font-family-sans-serif:      'Rubik', system-ui, -apple-system, "Segoe UI", Rob
     #illustration_hero {
         background-size: 2000px;
         background-position: center 145px;
+    }
+
+    #tabs_background {
+        background-size: 2000px;
+        background-position: center 330px;
     }
 }
