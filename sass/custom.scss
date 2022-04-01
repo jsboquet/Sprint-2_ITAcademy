@@ -17,6 +17,8 @@ $accordion-button-active-color: $secondary !default;
 $accordion-icon-color: $primary !default;
 $accordion-icon-active-color: $secondary !default;
 
+$form-feedback-invalid-color: $secondary !default;
+
 
 // 3. Include remainder of required Bootstrap stylesheets
 @import "../node_modules/bootstrap/scss/variables";
@@ -26,6 +28,7 @@ $accordion-icon-active-color: $secondary !default;
 // 4. Include any optional Bootstrap CSS as needed
 
 @import "../node_modules/bootstrap/scss/accordion";
+@import "../node_modules/bootstrap/scss/forms";
 @import "../node_modules/bootstrap/scss/utilities";
 @import "../node_modules/bootstrap/scss/card";
 @import "../node_modules/bootstrap/scss/nav";
@@ -43,18 +46,61 @@ $accordion-icon-active-color: $secondary !default;
 // 5. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
 @import "../node_modules/bootstrap/scss/utilities/api";
 
-// 6. Add additional custom code here
+// CUSTOM CODE
 
-%download_cards {
-    background-image: url(../media/bg-dots.svg);
+// NAVS
+.navbar-nav > a {
+    letter-spacing: 2px;
+}
+
+#navbarSupportedContent > div > a:hover,
+#navbar_footer > a:hover {
+    color: #fa5959;
+  }
+
+#login, #button_contact_us {
+    color: white;
+    background-color: #fa5959;
+    border: 3px solid #fa595900;
+
+    &:hover {
+        color: #fa5959;
+        background-color: white;
+        border: 3px solid #fa5959;
+    }
+}
+
+// PRIMER APARTAT
+#illustration_hero {
+    background-image: url(../media/bg-bar.svg);
     background-repeat: no-repeat;
-    background-position: 0px 70%;
+    background-size: 250%;
+    background-position: 80% 20%;
 }
 
-#download_cards_holder > * {
-    @extend %download_cards;
+.custom-button {
+    color: white;
+    background-color: $primary;
+    border: 2px solid rgba(255, 255, 255, 0);
+
+    &:hover {
+        color: $primary;
+        background-color: rgba(255, 0, 0, 0);
+        border: 2px solid $primary;
+    }
 }
 
+#get_firefox {
+    background-color: #F9FAFB;
+    border: 2px solid rgba(255, 255, 255, 0);
+
+    &:hover {
+        background-color: white;
+        border: 2px solid black;
+    }
+}
+
+// TABS
 #header_card, #nav-tabContent {
     text-align: center;
 }
@@ -62,12 +108,6 @@ $accordion-icon-active-color: $secondary !default;
 #nav-tab {
     border: none;
     border-top: 1px solid rgb(195, 195, 195);
-}
-
-#download_cards_holder .col:nth-child(1),
-#download_cards_holder .col:nth-child(2),
-#download_cards_holder .col:nth-child(3) {
-    margin-top: 30px;
 }
 
 #nav-simple-tab,
@@ -104,11 +144,10 @@ $accordion-icon-active-color: $secondary !default;
     }
 }
 
-#illustration_hero {
-    background-image: url(../media/bg-bar.svg);
-    background-repeat: no-repeat;
-    background-size: 250%;
-    background-position: 80% 20%;
+#nav-simple > div,
+#nav-speedy > div,
+#nav-easy > div {
+  height: 100%;
 }
 
 #tabs_background {
@@ -117,6 +156,71 @@ $accordion-icon-active-color: $secondary !default;
     background-size: 250%;
     background-position: 18% 45%;
 }
+
+// ACCORDION
+
+
+.accordion-item > h2 > button:hover {
+    color: $secondary;
+  }
+
+// DOWNLOAD
+%download_cards {
+    background-image: url(../media/bg-dots.svg);
+    background-repeat: no-repeat;
+    background-position: 0px 70%;
+}
+
+#download_cards_holder > * {
+    @extend %download_cards;
+}
+
+#download_cards_holder .col:nth-child(1),
+#download_cards_holder .col:nth-child(2),
+#download_cards_holder .col:nth-child(3) {
+    margin-top: 30px;
+}
+
+// FOOTER INPUT
+
+#footer_container {
+    background-color: #242946;
+}
+
+#footer_slogan {
+    letter-spacing: 5px;
+}
+
+#button_contact_us {
+    height: 55px;
+}
+
+#InputEmail::placeholder {
+    color: rgba(0, 0, 0, 0.25);
+    font-size: 1rem;
+}
+
+#InputEmail {
+    height: 55px;
+}
+
+#bookmark_logo_footer {
+    filter: invert(100);
+}
+
+#navbar_footer > a {
+    color: white;
+}
+
+.footer_xxss > path {
+    transition: 0.3s;
+
+    &:hover {
+        fill: $secondary;
+    }
+}
+
+// MEDIA QUERIS
  
 @include media-breakpoint-up(sm) {
     #illustration_hero {
